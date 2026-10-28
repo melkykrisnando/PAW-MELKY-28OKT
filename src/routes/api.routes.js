@@ -2,9 +2,11 @@ import express from 'express'
 import FakultasController from '../controllers/fakultas.controller.js'
 import logmiddleware from '../middleware/log.middleware.js'
 import ProdiController from '../controllers/prodi.controller.js'
+import { authenticateJwt } from '../middleware/auth.js'
 
 const router = express.Router()
 router.use(logmiddleware)
+router.use(authenticateJwt)
 router.get('/fakultas', FakultasController.index)
 router.get('/fakultas/:id', FakultasController.show)
 router.post('/fakultas', FakultasController.store)

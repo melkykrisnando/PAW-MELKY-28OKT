@@ -53,7 +53,8 @@ class FakultasController {
     return apiResponse({ 
       res, 
       status: 200, 
-      data: {listFakultas,
+      data: {
+        items: listFakultas,
         pagination: {
           totalData,
           totalPages,
